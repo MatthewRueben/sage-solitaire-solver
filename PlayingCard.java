@@ -51,7 +51,6 @@ public class PlayingCard
         }
     }
 
-
     public enum Suit
     {
         SPADES,
@@ -60,13 +59,8 @@ public class PlayingCard
         DIAMONDS;
     }
 
-    // Things that define standard playing cards.
-    //public static String[] SUITS = {"S", "C", "H", "D"}; // spades, clubs, hearts, diamonds.
-    //public static int[] RANKS = {1,2,3,4,5,6,7,8,9,10,11,12,13};  // ace = 1, jack = 11, queen = 12, king = 13.
-    //public static int NUM_CARDS_IN_DECK = SUITS.length * RANKS.length;  // 52.
-    
-    private Rank rank;
-    private Suit suit;
+    private final Rank rank;
+    private final Suit suit;
 
     public PlayingCard(Rank rank, Suit suit)
     {
@@ -82,5 +76,4 @@ public class PlayingCard
         PlayingCard myCard = new PlayingCard(Rank.ACE, Suit.SPADES);
         System.out.println(myCard);
     }
-
 }
