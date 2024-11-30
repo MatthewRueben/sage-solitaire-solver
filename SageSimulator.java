@@ -29,9 +29,8 @@ public class SageSimulator
 
     private void dealNewGame()
     {
-        DeckOfCards deck = new DeckOfCards(); // shuffled by default.
-        
-        
+        Deck deck = Deck.getNewUnshuffledDeck().shuffle();
+
         pileGrid.add(new ArrayList<Stack<PlayingCard>>(3));  // TOP_ROW
         // // // // // // // 
         pileGrid.get(TOP_ROW).add(new Stack<PlayingCard>());  // LEFT_COLUMN
@@ -73,7 +72,7 @@ public class SageSimulator
         pileGrid.get(BOTTOM_ROW).add(new Stack<PlayingCard>());  // LEFT_COLUMN
         deck.selectPile(pileGrid.get(BOTTOM_ROW).get(LEFT_COLUMN));
         deck.setNumberOfCardsToDeal(4);
-        deck.dealPile(); 
+        deck.dealPile();
         // // // // // // // 
         pileGrid.get(BOTTOM_ROW).add(new Stack<PlayingCard>());  // MIDDLE_COLUMN
         deck.selectPile(pileGrid.get(BOTTOM_ROW).get(MIDDLE_COLUMN));
