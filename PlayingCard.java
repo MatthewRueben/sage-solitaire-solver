@@ -7,10 +7,17 @@
  */
 public class PlayingCard
 {
+
     public enum Rank
     {
-        ONE,
-        TWO,
+        TWO
+        {
+            @Override
+            public Rank previous()
+            {
+                return ACE; // TWO is preceded by ACE.
+            }
+        },
         THREE,
         FOUR,
         FIVE,
@@ -22,17 +29,28 @@ public class PlayingCard
         JACK,
         QUEEN,
         KING,
-        ACE;
-
-        boolean follows(Rank otherRank)
+        ACE
         {
-            if (this.ordinal() > otherRank.ordinal()
-                    && this.ordinal() - otherRank.ordinal() == 1)
-                    return true;
-            else if (this == ONE && otherRank == ACE) return true;
-            else return false;
+            @Override
+            public Rank next()
+            {
+                return TWO; // ACE is followed by TWO.
+            }
+        };
+
+        private static final Rank[] RANKS = values();
+
+        Rank previous()
+        {
+            return RANKS[this.ordinal() - 1]; // See override for TWO.
+        }
+
+        Rank next()
+        {
+            return RANKS[this.ordinal() + 1]; // See override for ACE.
         }
     }
+
 
     public enum Suit
     {
